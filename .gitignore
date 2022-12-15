@@ -1,0 +1,16 @@
+__pycache__
+product
+config
+.idea
+db.sqlite3
+test
+stash
+reverse
+setup.py
+mongocopy.py
+aig
+aig.svg
+reporter.conf
+.vscode/sftp.json
+*.csv
+*.html

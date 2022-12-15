@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>AIG Report</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script>
+</head>
+<body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+        crossorigin="anonymous"></script>
+
+
+
+<div id="app" class="container-fluid" style="padding:0; height:100%">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand">title</a>
+            <button type="button" class="btn btn-primary" v-on:click="refresh">refresh</button>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <li class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li>
+                        <button type="button" class="btn btn-primary" v-on:click="logout">Logout</button>
+                    </li>
+                    <li>
+                        <span class="btn btn-primary">[[message]]</span>
+                    </li>
+                </ul>
+            </li>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div v-if="!access_token" class="d-flex align-items-center">
+                <div>
+                    <form style="margin:0 auto;margin-top:100px;">
+                        <div class="row">
+                            <div style="margin:0 auto">
+                                <div class="col">
+                                    <div class="input-group">
+                                        <input type="text" v-model="username" maxlength="20" name="username"
+                                               class="form-control" placeholder="Username" aria-label="Username"
+                                               aria-describedby="basic-addon1">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="input-group">
+                                    <input type="text" v-model="password" maxlength="20" 　name="password"
+                                           class="form-control" placeholder="Password" aria-label="Password"
+                                           aria-describedby="basic-addon1">
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-primary" v-on:click="login">Login</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div v-if="access_token" class="row" style="margin:20px;padding:20px">
+                    <div>refreshしてください。</div>
+            </div>
+        </div>
+    </div>
+</div>
+{% block body %}
+{% endblock %}
+
+{% block trailing %}
+{% endblock %}
+<script src="static/main.js"></script>
+</body>
+</html>
